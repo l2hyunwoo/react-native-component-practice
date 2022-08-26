@@ -1,0 +1,58 @@
+import React from 'react';
+import { View } from 'react-native';
+import { TableComponent, TableProps } from '../interface';
+
+export const Table: TableComponent = React.memo(props => {
+  const renderChildren = (_props: TableProps) => {
+    return React.Children.map<React.ReactNode, React.ReactNode>(
+      _props.children,
+      child =>
+        React.isValidElement(child)
+          ? React.cloneElement(
+              child,
+              _props.borderStyle && child.type !== 'ScrollView'
+                ? {borderStyle: _props.borderStyle}
+                : {},
+            )
+          : null,
+    );
+  };
+
+  const {borderStyle} = props;
+  const borderLeftWidth = (borderStyle && borderStyle.borderWidth) || 0;
+  const borderBottomWidth = borderLeftWidth;
+  const borderColor = (borderStyle && borderStyle.borderColor) || '#000';
+
+  return (
+    <View
+      style={[
+        props.style,
+        {
+          borderLeftWidth,
+          borderBottomWidth,
+          borderColor,
+        },
+      ]}>
+      {renderChildren(props)}
+    </View>
+  );
+});
+
+export const TableWrapper: TableComponent = React.memo(props => {
+  const renderChildren = (_props: TableProps) => {
+    return React.Children.map<React.ReactNode, React.ReactNode>(
+      _props.children,
+      child =>
+        React.isValidElement(child)
+          ? React.cloneElement(
+              child,
+              _props.borderStyle ? {borderStyle: _props.borderStyle} : {},
+            )
+          : null,
+    );
+  };
+
+  const {style} = props;
+
+  return <View style={style}>{renderChildren(props)}</View>;
+});
