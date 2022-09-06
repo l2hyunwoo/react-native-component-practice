@@ -1,7 +1,8 @@
 import React from 'react';
-import { StyleSheet, Text, View, ViewStyle } from 'react-native';
-import { Row, Rows } from './components/row';
-import { Table } from './components/table';
+import { StyleSheet, Text, TextStyle, View, ViewStyle } from 'react-native';
+import { Row, Rows } from './table/components/row';
+import { Table } from './table/components/table';
+import Font from './styles/font/base/base';
 
 type Content = {
   title: string;
@@ -20,8 +21,8 @@ const App = React.memo(() => {
   const tableViews = tableDatas.map(view => {
     return (
       <View>
-        <Text>{view.title}</Text>
-        {view.subtitle && <Text>{view.subtitle}</Text>}
+        <Text style={styles.title}>{view.title}</Text>
+        {view.subtitle && <Text style={styles.subTitle}>{view.subtitle}</Text>}
       </View>
     );
   });
@@ -47,6 +48,8 @@ type Style = {
   border: ViewStyle;
   head: ViewStyle;
   text: ViewStyle;
+  title: TextStyle;
+  subTitle: TextStyle;
 };
 
 const styles = StyleSheet.create<Style>({
@@ -61,9 +64,16 @@ const styles = StyleSheet.create<Style>({
   head: {
     height: 44,
     backgroundColor: '#F5F5F5',
-    borderRadius: 4,
   },
   text: {margin: 6},
+  title: {
+    ...Font.Body.m,
+    color: '#000',
+  },
+  subTitle: {
+    ...Font.Body.m,
+    color: '#b2b2b2',
+  },
 });
 
 export default App;

@@ -6,13 +6,12 @@
     "adb-port": "adb reverse tcp:8081 tcp:8081 && adb reverse tcp:9090 tcp:9090",
     "android-run": "yarn adb-port && node node_modules/react-native/local-cli/cli.js run-android",
     "ios": "react-native run-ios",
-    "start": "react-native start",
-    "test": "jest",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "start": "react-native start"
   },
   "dependencies": {
     "react": "18.0.0",
-    "react-native": "0.69.4"
+    "react-native": "0.69.4",
+    "@mathpresso/react-native-tutor-design-system": "https://github.com/mathpresso/rn-tutor-design-system#0.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
@@ -30,16 +29,5 @@
     "metro-react-native-babel-preset": "^0.70.3",
     "react-test-renderer": "18.0.0",
     "typescript": "^4.4.4"
-  },
-  "jest": {
-    "preset": "react-native",
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ]
   }
 }

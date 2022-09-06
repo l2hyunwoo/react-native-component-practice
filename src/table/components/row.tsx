@@ -1,10 +1,10 @@
-import React, { ReactText } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { TableViewProps } from '../interface';
+import { ChildView, TableViewProps } from '../interface';
 import { sum } from '../utils';
 import Cell from './cell';
 
-export const Row: React.FC<TableViewProps<ReactText[]>> = React.memo(props => {
+export const Row: React.FC<TableViewProps<ChildView[]>> = React.memo(props => {
   const {data, style, widthArr, height, flexArr, textStyle, ...rest} = props;
   let width = widthArr ? sum(widthArr) : 0;
   return data ? (
@@ -27,7 +27,7 @@ export const Row: React.FC<TableViewProps<ReactText[]>> = React.memo(props => {
   ) : null;
 });
 
-export const Rows: React.FC<TableViewProps<ReactText[][]>> = React.memo(
+export const Rows: React.FC<TableViewProps<ChildView[][]>> = React.memo(
   props => {
     const {data, style, widthArr, heightArr, flexArr, textStyle, ...rest} =
       props;
