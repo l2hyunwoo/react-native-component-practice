@@ -11,7 +11,7 @@
   "dependencies": {
     "react": "18.0.0",
     "react-native": "0.69.4",
-    "@mathpresso/react-native-tutor-design-system": "https://github.com/mathpresso/rn-tutor-design-system#0.1.0"
+    "@mathpresso/react-native-tutor-design-system": "https://github.com/mathpresso/rn-tutor-design-system#0.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
